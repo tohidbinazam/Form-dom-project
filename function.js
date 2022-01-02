@@ -61,20 +61,20 @@ function checkageinfo(age){
  * @param {*} currency 
  * @returns Number
  */
-function cc_cal(amount, currency){
+// function cc_cal(amount, currency){
 
-    if(currency == 85){
-        return amount * 85
-    }
-    else if(currency == 67){
-        return amount * 67
-    }
-    else if(currency == 91){
-        return amount * 91
-    }
-    else if(currency == 104){
-        return amount * 104
-    }else{
-        return ``
-    }
-}
+//     if(currency == 85){
+//         return amount * 85
+//     }
+//     else if(currency == 67){
+//         return amount * 67
+//     }
+//     else if(currency == 91){
+//         return amount * 91
+//     }
+//     else if(currency == 104){
+//         return amount * 104
+//     }else{
+//         return ``
+//     }
+// }

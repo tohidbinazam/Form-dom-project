@@ -79,6 +79,23 @@ signupform.onsubmit = (e) => {
  */
 const cc_name = document.querySelector('#cc_name');
 const cc_amount = document.querySelector('#cc_amount');
+const cc_main = document.querySelector('#cc_main');
+const cc_button = document.querySelector('.cc_button');
+const cc_result = document.querySelector('.cc_result');
+
+cc_button.addEventListener('click', () => {
+
+    // if(cc_name.value == '' || cc_amount == ''){
+    //     cc_result.innerHTML = `<p class = 'alert alert-danger'>All Fields are required.</p>`
+    // }else{
+    // cc_result.innerHTML = `<p class = 'alert alert-success'>Hi, ${cc_name.value} your converting amount is ${cc_cal(cc_amount.value, currency.value)} TAKA</p>`
+    // }
+
+    let cc_convert = cc_amount.value * cc_main.value;
+
+    cc_result.innerHTML = (cc_name.value == '' || cc_amount == '') ? `<p class = 'alert alert-danger'>All Fields are required.</p>` : `<p class = 'alert alert-success'>Hi, ${cc_name.value} your converting amount is ${cc_convert} TAKA</p>`;
+})
+
 
 
 
