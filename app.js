@@ -93,7 +93,8 @@ cc_button.addEventListener('click', () => {
 
     let cc_convert = cc_amount.value * cc_main.value;
 
-    cc_result.innerHTML = (cc_name.value == '' || cc_amount == '') ? `<p class = 'alert alert-danger'>All Fields are required.</p>` : `<p class = 'alert alert-success'>Hi, ${cc_name.value} your converting amount is ${cc_convert} TAKA</p>`;
+    cc_result.innerHTML = (cc_name.value == '' || cc_amount == '' || cc_main.value == 'Pleace set your currency') ? `<p class = 'alert alert-danger'>All Fields are required.</p>` : `<p class = 'alert alert-success'>Hi, ${cc_name.value} your converting amount is ${cc_convert} TAKA</p>`;
+
 })
 
 
