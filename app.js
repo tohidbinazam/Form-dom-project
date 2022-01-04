@@ -41,7 +41,7 @@ formuname.addEventListener('keyup', () => {
     let pattern = /^[a-z0-9_-]{5,12}$/;
     
     formuname_res.innerHTML = (formuname.value) ? '' : 'Set a username <br>';
-    formuname_res.innerHTML += (pattern.test(formuname.value)) ? `Done` : `Min 5 & max 12 character`
+    formuname_res.innerHTML += (pattern.test(formuname.value)) ? `Done` : `Min 5 & max 12 character`;
 
 })
 
@@ -95,10 +95,13 @@ cc_button.onclick = () => {
 
     cc_result.innerHTML = (cc_name.value == '' || cc_amount == '' || cc_main.value == '') ? `<p class = 'alert alert-danger'>All Fields are required.</p>` : `<p class = 'alert alert-success'>Hi, ${cc_name.value} your converting amount is ${cc_convert} TAKA</p>`;
 
-}
+};
 
 
 
+/**
+ * Marriage age event
+ */
 
 const mar_name = document.querySelector('.mar_name');
 const mar_option = document.querySelector('.mar_option');
@@ -113,16 +116,20 @@ mar_button.onclick = () => {
     let age = date.getFullYear() - mar_date.value;
     let mar_res;
 
-    if(age >= 18 && mar_option.value == 'Male' && mar_name.value){
-        mar_res = `<p class = 'alert alert-success'>Hi ${mar_name.value}, your age is ${age} Now you can marry anyone </p>`;
-    }else if(age >= 21 && mar_option.value == 'Female' && mar_name.value){
-        mar_res = `<p class = 'alert alert-success'>Hi ${mar_name.value}, your age is ${age} Now you can marry anyone </p>`;
+    let mar_dif = (mar_option.value == 'Male') ? 21 - age : 18 - age;
+
+    if(age >= 18 && mar_option.value == 'Female' && mar_name.value){
+        mar_res = `<p class = 'alert alert-success'>Hi ${mar_name.value}, your age is ${age} years old. Now you can marry anyone </p>`;
+    }else if(age >= 21 && mar_option.value == 'Male' && mar_name.value){
+        mar_res = `<p class = 'alert alert-success'>Hi ${mar_name.value}, your age is ${age} years old. Now you can marry anyone </p>`;
+    }else if(mar_date.value == '' || mar_option.value == '' || mar_name.value == ''){
+        mar_res = `<p class ='alert alert-danger'>All Fields are required.</p>`;
     }else{
-        mar_res = `<p class ='alert alert-danger'>All Fields are required.</p>`
+        mar_res = `<p class = 'alert alert-success'>Hi ${mar_name.value}, your age is ${age} years. Sorry, you can marriage after <b>${mar_dif}</b> <b>${mar_dif < 2 ? 'year' : 'years'} </b></p>`;
     }
 
     mar_result.innerHTML = mar_res;
 
-}
+};
 
 
