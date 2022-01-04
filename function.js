@@ -8,7 +8,6 @@ function agecal(name, year){
     let date = new Date();
     let age = date.getFullYear() - year;
     let ageinfo = checkageinfo(age);
-     
     return `<p class='alert alert-${ageinfo.alert}'>Hello ${name}, you are ${age} years old & you are a ${ageinfo.status}</p>`;
 };
 

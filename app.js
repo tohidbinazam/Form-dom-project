@@ -25,7 +25,7 @@ const form_res = document.querySelector('.form_res');
 /**
  * Agecal event
  */
-button.addEventListener('click', () => {
+button.addEventListener('click', function() {
     agecal_res.innerHTML = agecal(name.value, year.value);
     name.value = '';
     year.value = '';
@@ -65,10 +65,10 @@ signupform.onsubmit = (e) => {
    form_single_res += (email) ? '' : 'E-mail required, ';
    form_single_res += (uname) ? '' : 'Username required';
 
-   if(name == '' || email == '' || uname == ''){
-        form_res.innerHTML = `<p class = 'alert alert-danger'>All Fields are required. Such as ${form_single_res}</p>`;
-   }else{
+   if(name && email && uname){
         form_res.innerHTML = `<p class = 'alert alert-success'>All Done, Thanks</p>`;
+   }else{
+        form_res.innerHTML = `<p class = 'alert alert-danger'>All Fields are required. Such as ${form_single_res}</p>`;
    }
 };
 
@@ -83,7 +83,7 @@ const cc_main = document.querySelector('#cc_main');
 const cc_button = document.querySelector('.cc_button');
 const cc_result = document.querySelector('.cc_result');
 
-cc_button.addEventListener('click', () => {
+cc_button.onclick = () => {
 
     // if(cc_name.value == '' || cc_amount == ''){
     //     cc_result.innerHTML = `<p class = 'alert alert-danger'>All Fields are required.</p>`
@@ -93,11 +93,36 @@ cc_button.addEventListener('click', () => {
 
     let cc_convert = cc_amount.value * cc_main.value;
 
-    cc_result.innerHTML = (cc_name.value == '' || cc_amount == '' || cc_main.value == 'Pleace set your currency') ? `<p class = 'alert alert-danger'>All Fields are required.</p>` : `<p class = 'alert alert-success'>Hi, ${cc_name.value} your converting amount is ${cc_convert} TAKA</p>`;
+    cc_result.innerHTML = (cc_name.value == '' || cc_amount == '' || cc_main.value == '') ? `<p class = 'alert alert-danger'>All Fields are required.</p>` : `<p class = 'alert alert-success'>Hi, ${cc_name.value} your converting amount is ${cc_convert} TAKA</p>`;
 
-})
+}
 
 
 
+
+const mar_name = document.querySelector('.mar_name');
+const mar_option = document.querySelector('.mar_option');
+const mar_date = document.querySelector('.mar_date');
+const mar_button = document.querySelector('.mar_button');
+const mar_result = document.querySelector('.mar_result');
+
+
+mar_button.onclick = () => {
+    
+    let date = new Date();
+    let age = date.getFullYear() - mar_date.value;
+    let mar_res;
+
+    if(age >= 18 && mar_option.value == 'Male' && mar_name.value){
+        mar_res = `<p class = 'alert alert-success'>Hi ${mar_name.value}, your age is ${age} Now you can marry anyone </p>`;
+    }else if(age >= 21 && mar_option.value == 'Female' && mar_name.value){
+        mar_res = `<p class = 'alert alert-success'>Hi ${mar_name.value}, your age is ${age} Now you can marry anyone </p>`;
+    }else{
+        mar_res = `<p class ='alert alert-danger'>All Fields are required.</p>`
+    }
+
+    mar_result.innerHTML = mar_res;
+
+}
 
 
