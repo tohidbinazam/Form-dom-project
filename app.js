@@ -125,7 +125,7 @@ mar_button.onclick = () => {
     }else if(age >= 18 && mar_option.value == 'Female' && mar_name.value){
         mar_res = `<p class = 'alert alert-success'>Hi ${mar_name.value}, your age is ${age} years old. Now you can marry anyone </p>`; 
     }else{
-        mar_res = `<p class = 'alert alert-success'>Hi ${mar_name.value}, your age is ${age} years. Sorry, you can marriage after <b>${mar_dif}</b> <b>${mar_dif < 2 ? 'year' : 'years'} </b></p>`;
+        mar_res = `<p class = 'alert alert-secondary'>Hi ${mar_name.value}, your age is ${age} years. Sorry, you can marriage after <b>${mar_dif}</b> <b>${mar_dif < 2 ? 'year' : 'years'} </b></p>`;
     }
 
     mar_result.innerHTML = mar_res;
