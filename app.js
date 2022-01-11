@@ -120,4 +120,26 @@ mar_button.onclick = () => {
   }
 
   mar_result.innerHTML = mar_res;
+
+  let date = new Date();
+  let age = date.getFullYear() - mar_date.value;
+  let mar_res;
+
+  let mar_dif = mar_option.value == 'Male' ? 21 - age : 18 - age;
+
+  if (mar_date.value == '' || mar_option.value == '' || mar_name.value == '') {
+    mar_res = `<p class ='alert alert-danger'>All Fields are required.</p>`;
+  } else if (age >= 21 && mar_option.value == 'Male' && mar_name.value) {
+    mar_res = `<p class = 'alert alert-success'>Hi ${mar_name.value}, your age is ${age} years old. Now you can marry anyone </p>`;
+  } else if (age >= 18 && mar_option.value == 'Female' && mar_name.value) {
+    mar_res = `<p class = 'alert alert-success'>Hi ${mar_name.value}, your age is ${age} years old. Now you can marry anyone </p>`;
+  } else {
+    mar_res = `<p class = 'alert alert-secondary'>Hi ${
+      mar_name.value
+    }, your age is ${age} years. Sorry, you can marriage after <b>${mar_dif}</b> <b>${
+      mar_dif < 2 ? 'year' : 'years'
+    } </b></p>`;
+  }
+
+  mar_result.innerHTML = mar_res;
 };
