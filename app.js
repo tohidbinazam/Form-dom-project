@@ -34,9 +34,7 @@ formuname.addEventListener('keyup', () => {
   let pattern = /^[a-z0-9_-]{5,12}$/;
 
   formuname_res.innerHTML = formuname.value ? '' : 'Set a username <br>';
-  formuname_res.innerHTML += pattern.test(formuname.value)
-    ? `Done`
-    : `Min 5 & max 12 character`;
+  formuname_res.innerHTML += pattern.test(formuname.value) ? `Done` : `Min 5 & max 12 character`;
 });
 
 /**
